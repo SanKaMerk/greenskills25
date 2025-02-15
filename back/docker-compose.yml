@@ -1,0 +1,39 @@
+version: "3.8"
+services:
+  presentation_backend:
+    container_name: presentation_backend
+    build: ..
+    volumes:
+      - ./app:/app
+    env_file:
+      - .env
+    ports:
+      - 8000:8000
+    command: uvicorn main:create_app --workers 2 --host localhost
+    networks:
+      - greenskills_network
+
+  presentation_db:
+    container_name: presentation_db
+    image: library/postgres:13.2
+    environment:
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres
+        POSTGRES_DB: main_db
+    restart: on-failure
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "postgres", "-d", "main_db" ]
+      interval: 5s
+      retries: 5
+    networks:
+      - greenskills_network
+
+volumes:
+  db_data:
+
+networks:
+  greenskills_network:
