@@ -44,7 +44,4 @@ async def migrate() -> None:
         async with engine.begin() as conn:
             await conn.run_sync(meta.metadata.create_all)
     except IntegrityError:
-
-        async with engine.begin() as conn:
-            await conn.run_sync(meta.metadata.drop_all())
-            await conn.run_sync(meta.metadata.create_all)
+        pass

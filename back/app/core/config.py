@@ -22,6 +22,8 @@ class Settings(BaseSettings):
 
     ML_SERVICE_URL: str
 
+    JWT_SECRET_SALT: str
+
     @property
     def KEYCLOAK_AUTHORIZATION_URL(self) -> str:
         return f"{self.KEYCLOAK_SERVER_URL}/realms/{self.KEYCLOAK_REALM}/protocol/openid-connect/auth"
