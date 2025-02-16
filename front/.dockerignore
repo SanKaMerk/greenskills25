@@ -1,0 +1,17 @@
+**/.git
+**/gitlab-ci
+**/.gitignore
+**/.vscode
+**/coverage
+**/.env
+**/.ssh
+Dockerfile
+README.md
+docker-compose.yml
+**/.DS_Store
+**/venv
+**/env
+requirements.txt
+local.docker-compose.yml
+.gitlab-ci.yml
+.env.example

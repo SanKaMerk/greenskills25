@@ -1,0 +1,10 @@
+version: "3.3"
+
+services:
+  frontend:
+    build:
+      context: .
+    container_name: puska-strashnaya
+    restart: always
+    ports:
+      - 8000:80
