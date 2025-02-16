@@ -1,0 +1,6 @@
+dist
+.huski
+.gitlab
+.vscode
+node_modules
+reports

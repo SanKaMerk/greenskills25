@@ -1,8 +1,8 @@
 version: "3.8"
 services:
   presentation_backend:
-    container_name: presentation_backend
-    build: ..
+    container_name: presentation-backend
+    image: presentation_backend:latest
     volumes:
       - ./app:/app
     env_file:
@@ -14,7 +14,7 @@ services:
       - greenskills_network
 
   presentation_db:
-    container_name: presentation_db
+    container_name: presentation-db
     image: library/postgres:13.2
     environment:
         POSTGRES_USER: postgres
