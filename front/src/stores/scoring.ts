@@ -43,7 +43,7 @@ export class PuskaStrashnayaStore {
             tempData.slides[sIndex].components[cIndex].top = 100;
           }
           if (!comp.top && comp.type === "image") {
-            tempData.slides[sIndex].components[cIndex].top = 600;
+            tempData.slides[sIndex].components[cIndex].top = 300;
           }
           if (!comp.left && comp.type === "title") {
             tempData.slides[sIndex].components[cIndex].left = 200;

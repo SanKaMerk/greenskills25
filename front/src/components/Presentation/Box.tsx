@@ -30,9 +30,7 @@ export const Box: FC<BoxProps> = memo(
         case "text":
           return <Text>{content}</Text>;
         case "image":
-          return (
-            <img src={`src/assets${content}`} style={{ width: 400 }}></img>
-          );
+          return <img src={content} style={{ width: 400 }}></img>;
         case "list":
           return content;
       }
