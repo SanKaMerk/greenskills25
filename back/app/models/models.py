@@ -25,6 +25,8 @@ class Presentation(Base):
 
     id: Mapped[pk_uuid]
     user_id: Mapped[uuid.UUID] = mapped_column(nullable=False)
+    background: Mapped[int] = mapped_column(nullable=True)
+    name: Mapped[str]
     created_at: Mapped[created_at]
     updated_at: Mapped[updated_at]
 
@@ -49,7 +51,17 @@ class Components(Base):
     slide: Mapped["Slides"] = relationship(back_populates="components")
     type: Mapped[str] = mapped_column(nullable=False)
     content: Mapped[str] = mapped_column(nullable=False)
-    width: Mapped[int]
-    height: Mapped[int]
+    width: Mapped[int] = mapped_column(nullable=True)
+    height: Mapped[int] = mapped_column(nullable=True)
+    left: Mapped[int] = mapped_column(nullable=True)
+    top: Mapped[int] = mapped_column(nullable=True)
+
+
+class User(Base):
+    __tablename__ = "users"
+
+    id: Mapped[pk_uuid]
+    username: Mapped[str]
+    hashed_password: Mapped[str]
 
 
